@@ -1,8 +1,11 @@
 import type { Config } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
-export default {
+const config: Config = {
+  darkMode: 'class', // ✅ اضافه شده برای پشتیبانی از دارک مود دستی
+
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
+
   theme: {
     extend: {
       fontFamily: {
@@ -10,7 +13,6 @@ export default {
       },
       colors: {
         primary: {
-          // Customize it on globals.css :root
           50: 'rgb(var(--tw-color-primary-50) / <alpha-value>)',
           100: 'rgb(var(--tw-color-primary-100) / <alpha-value>)',
           200: 'rgb(var(--tw-color-primary-200) / <alpha-value>)',
@@ -52,5 +54,8 @@ export default {
       },
     },
   },
+
   plugins: [require('@tailwindcss/forms')],
-} satisfies Config;
+};
+
+export default config;

@@ -26,16 +26,16 @@ export default function CashbackWithIntro() {
   }, [current]);
 
   return (
-    <section className="w-full bg-white py-20 px-6 sm:px-10 lg:px-16">
+    <section className="w-full bg-white dark:bg-[#121212] py-20 px-6 sm:px-10 lg:px-16 transition-colors duration-300">
       {/* Header */}
       <div className="max-w-[1100px] mx-auto text-center mb-16">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight mb-6">
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">
           <span className="bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 bg-clip-text text-transparent">
             Earn Instant Cashback
           </span>{' '}
           As You Spend
         </h2>
-        <p className="text-gray-600 text-lg sm:text-base max-w-2xl mx-auto">
+        <p className="text-gray-600 dark:text-gray-300 text-lg sm:text-base max-w-2xl mx-auto">
           No need to puzzle over how to earn and spend your cashback. Zeepay Cashback is straightforward
           and immediate — no discount codes, just instant rewards. Earn without stress or conditions.
         </p>
@@ -46,22 +46,22 @@ export default function CashbackWithIntro() {
         {/* Left Info */}
         <div className="w-full lg:w-1/3 flex flex-col items-center text-center gap-4 pt-4">
           <Image src="/images/logos/starbucks.png" alt="Starbucks" width={70} height={70} />
-          <h3 className="text-2xl font-semibold text-gray-800">Starbucks</h3>
-          <p className="text-sm text-gray-500">1 April - 30 June</p>
+          <h3 className="text-2xl font-semibold text-gray-800 dark:text-white">Starbucks</h3>
+          <p className="text-sm text-gray-500 dark:text-gray-400">1 April - 30 June</p>
           <span className="inline-block mt-2 bg-red-500 text-white text-xs font-bold px-4 py-1 rounded-full shadow-sm">
             Up to 4%
           </span>
           <a
             href="#"
-            className="text-blue-600 text-sm hover:underline mt-1 inline-block font-medium"
+            className="text-blue-600 dark:text-blue-400 text-sm hover:underline mt-1 inline-block font-medium"
           >
             More Info →
           </a>
         </div>
 
         {/* Right Slider */}
-        <div className="w-full lg:w-2/3 relative rounded-3xl overflow-hidden shadow-xl h-[420px] border border-gray-100">
-          {/* Base image to avoid flashing */}
+        <div className="w-full lg:w-2/3 relative rounded-3xl overflow-hidden shadow-xl h-[420px] border border-gray-100 dark:border-gray-800 transition-colors duration-300">
+          {/* Previous image to avoid flash */}
           <motion.img
             key={`prev-${prev}`}
             src={images[prev]}
@@ -70,7 +70,7 @@ export default function CashbackWithIntro() {
             initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
           />
-          {/* Animated new image */}
+          {/* Animated current image */}
           <motion.img
             key={`current-${current}`}
             src={images[current]}
@@ -82,12 +82,12 @@ export default function CashbackWithIntro() {
           />
 
           {/* Indicators */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 bg-black/30 px-4 py-2 rounded-full backdrop-blur-sm">
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 bg-black/30 dark:bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
             {images.map((_, i) => (
               <span
                 key={i}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  i === current ? 'bg-white' : 'bg-white/40'
+                  i === current ? 'bg-white dark:bg-white' : 'bg-white/40 dark:bg-white/30'
                 }`}
               />
             ))}
